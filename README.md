@@ -14,9 +14,6 @@ NB: It is often said to become an expert, you should continue to practice. This 
 * Understanding components in vue.js
 
 
-* Has drag and drop support for desktop
-* Stores task in browser cache
-
 ## Project setup
 ```
 npm install
