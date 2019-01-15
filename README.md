@@ -3,6 +3,12 @@
 This is a minimal todo-like/task app built in vue.js 
 It has drag and drop support 
 
+## Features
+
+![project preview](https://ibb.co/XJNsf2C)
+Has drag and drop support for desktop
+Stores task in browser cache
+
 ## Project setup
 ```
 npm install
