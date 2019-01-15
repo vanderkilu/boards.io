@@ -1,4 +1,4 @@
-# trello-clone-ui
+# boards.io
 
 This is a minimal todo-like/task app built in vue.js 
 It has drag and drop support 
@@ -7,7 +7,7 @@ NB: This project is just for learning sake
 
 ## Features
 
-(https://ibb.co/XJNsf2C)
+![project preview](https://raw.githubusercontent.com/vanderkilu/boards.io/master/public/src/assets/preview.png)
 * Has drag and drop support for desktop
 * Stores task in browser cache
 
