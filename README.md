@@ -7,9 +7,9 @@ NB: This project is just for learning sake
 
 ## Features
 
-![project preview](https://ibb.co/XJNsf2C)
-Has drag and drop support for desktop
-Stores task in browser cache
+(https://ibb.co/XJNsf2C)
+* Has drag and drop support for desktop
+* Stores task in browser cache
 
 ## Project setup
 ```
