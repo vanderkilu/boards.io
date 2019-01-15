@@ -3,9 +3,15 @@
 This is a minimal todo-like/task app built in vue.js 
 It has drag and drop support 
 
-NB: This project is just for learning sake
+NB: It is often said to become an expert, you should continue to practice. This is one of my "practice project"
 
-## Features
+![preview](https://github.com/vanderkilu/boards.io/blob/master/src/assets/preview.png)
+
+## Things i learnt building this simple project
+
+* Getting to know the javascript drag and drop api
+* Storing data using the local storage
+* Understanding components in vue.js
 
 
 * Has drag and drop support for desktop
