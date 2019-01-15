@@ -1,5 +1,8 @@
 # trello-clone-ui
 
+This is a minimal todo-like/task app built in vue.js 
+It has drag and drop support 
+
 ## Project setup
 ```
 npm install
@@ -24,3 +27,6 @@ npm run test
 ```
 npm run lint
 ```
+
+##Note
+*Feel free to modify this project*
