@@ -7,7 +7,7 @@ NB: This project is just for learning sake
 
 ## Features
 
-![project preview](https://raw.githubusercontent.com/vanderkilu/boards.io/master/public/src/assets/preview.png)
+![project preview](https://raw.githubusercontent.com/vanderkilu/boards.io/master/src/assets/preview.png)
 * Has drag and drop support for desktop
 * Stores task in browser cache
 
