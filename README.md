@@ -28,5 +28,5 @@ npm run test
 npm run lint
 ```
 
-##Note
-*Feel free to modify this project*
+## Note
+* Feel free to modify this project *
