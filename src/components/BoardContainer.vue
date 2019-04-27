@@ -37,7 +37,7 @@
 
 <script>
     import Board from './Board.vue'
-    import {eventBus} from '../main.js'
+    import { guid } from '../uuid'
     export default  {
         data() {
             return {
@@ -78,12 +78,9 @@
         },
         methods: {
             addBoard() {
-                let id = this.boards.length + 1
                 if (this.board.name !== '') {
-                    let newBoard = JSON.parse(JSON.stringify(this.board))
-                    newBoard.id = id
-                    this.boards.push(newBoard)
-                    this.board.name = ''
+                    this.board.id = guid()
+                    this.boards.push(this.board)
                     this.show = false
                 }
             },
@@ -106,11 +103,6 @@
             let boards = JSON.parse(localStorage.getItem('boards')) || this.boards;
             this.boards = boards;
         },
-        mounted() {
-            eventBus.$on('removeCard', (card)=> {
-                this.remove(card);
-            })
-        }
     }
 </script>
 

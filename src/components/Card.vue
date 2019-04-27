@@ -3,10 +3,6 @@
     <div>
         <div 
         class="card-small" :class="{favorited:currentCard.favorite, done:currentCard.done}"
-        draggable="true"
-        @dragstart="dragStart($event, card)"
-        @dragover.prevent="dragOver($event, card)"
-        @dragend="removeCard()"
         @click="editCard(card)"
         >
             {{card.title}}
@@ -27,7 +23,6 @@
 </template>
 
 <script>
-import {eventBus} from '../main.js'
 export default {
     props: ['card', 'myBoard'],
     data() {
@@ -40,20 +35,10 @@ export default {
         }
     },
     methods:  {
-            dragStart(ev, card) {
-                ev.dropEffect = "move";
-                eventBus.$emit('drop-listener', card);
-            },
-            dragOver(ev, card) {
-                ev.dataTransfer.dropEffect = "move"
-            },
             _delete() {
                 let cardToDelete = this.myBoard.cards.find((c) => c.id === this.card.id)
                 let index = this.myBoard.cards.indexOf(cardToDelete);
                 this.myBoard.cards.splice(index,1);
-            },
-            removeCard() {
-                this._delete();
             },
             editCard(card) {
                 this.currentCard = card;

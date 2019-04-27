@@ -1,9 +1,9 @@
 <template>
     <div>
         <div class="card-custom" :class="{hover:hovered}" 
-                @drop.prevent="cardDrop($event, myBoard)" 
-                @dragover.prevent="hovered = true"
-                @dragleave="hovered = false">
+            @drop.prevent="cardDrop" 
+            @dragover.prevent="hovered = true"
+            @dragleave.prevent="hovered = false">
                 <h5 class="m-2 mb-4 color-primary board-name">{{ myBoard.name}} </h5>
                 <div class="dropdown-custom">
                     <div class="dropdown-btn" @click="show = !show">
@@ -13,9 +13,13 @@
                     </div>
                 </div>
                 <p class="entry-count text-center"> {{ myBoard.cards.length }} entries </p>
-                <div v-for="card in myBoard.cards" :key="card.id" > 
-                    <app-card :card="card" :myBoard="myBoard"></app-card>
-                </div>
+                <draggable  v-model="myBoard.cards" group="people" @start="drag=true" @end="drag=false">
+                    <transition-group name="flip-list">
+                        <div v-for="card in myBoard.cards" :key="card.id" > 
+                            <app-card :card="card" :myBoard="myBoard"></app-card>
+                        </div>
+                    </transition-group>
+                </draggable>
                 <input class="input-custom" v-model="card.title" 
                 @keypress.enter="addCard()" placeholder="add a new task">  
         </div>
@@ -37,6 +41,7 @@
     import Card from './Card.vue'
     import {eventBus} from '../main.js'
     import { guid } from '../uuid'
+    import draggable from 'vuedraggable'
     export default  {
         props: ['myBoard', 'boards'],
         data() {
@@ -49,44 +54,34 @@
                     favorite: false,
                     done: false,
                 },
-                dragCard: null,
                 hovered: false,
-                show: false
+                show: false,
+                drag: null
             }
         },
         components: {
             appCard: Card,
+            draggable
         },
         methods: {
             addCard() {
                 let board = this.myBoard
                 if (this.card.title !== '') {
                     let newCard = JSON.parse(JSON.stringify(this.card))
-                    let id  = board.cards.length + 1
-                    newCard.id = id
+                    newCard.id = guid()
                     newCard.board = board.id
                     board.cards.push(newCard)
                     this.card.title = ''
                     this.card.description = ''
                 }
             },
-            cardDrop(ev, b) {
+            cardDrop() {
                 this.hovered = false;
-                let onBoard = this.boards.find((board) => board.id === b.id)
-                this.dragCard.id = guid()
-                this.dragCard.board = onBoard.id
-                onBoard.cards.push(this.dragCard);
             },
             deleteBoard() {
                 this.boards.splice(this.boards.indexOf(this.myBoard), 1);
             }
         },
-         mounted() {
-            eventBus.$on('drop-listener', (card) => {
-                this.dragCard = card 
-            })
-        }
-       
     }
 </script>
 
@@ -158,5 +153,8 @@
 }
 .dshow {
     display: block;
+}
+.flip-list-move {
+  transition: transform 0.5s;
 }
 </style>
