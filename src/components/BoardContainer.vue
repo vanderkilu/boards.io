@@ -79,8 +79,10 @@
         methods: {
             addBoard() {
                 if (this.board.name !== '') {
-                    this.board.id = guid()
-                    this.boards.push(this.board)
+                    let newBoard = JSON.parse(JSON.stringify(this.board))
+                    newBoard.id = guid()
+                    this.boards.push(newBoard)
+                    this.board.name = ''
                     this.show = false
                 }
             },
