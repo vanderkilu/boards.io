@@ -44,13 +44,13 @@
                 boards: [
                     {
                         id: 1,
-                        name: 'testing',
+                        name: 'Information',
                         description: '',
                         cards: [
                             {
                                 id: 1,
                                 board: 1,
-                                title: 'this is just for testing 1',
+                                title: 'you can create boards',
                                 description: '',
                                 favorite: false,
                                 done: false
@@ -58,7 +58,7 @@
                              {
                                 id: 2,
                                 board: 1,
-                                title: 'this is just for testing 2',
+                                title: 'You can create tasks and dnd them around',
                                 description: '',
                                 favorite: false,
                                 done: false
