@@ -8,7 +8,7 @@
             <p> saved successfully</p>
         </div>
         <div class="row">
-            <div class="col-4" v-for="board in boards" :key="board.id">
+            <div class="col-md-4 col-sm-12" v-for="board in boards" :key="board.id">
                 <app-board :myBoard="board" :boards="boards"></app-board>
             </div>
         </div>
@@ -225,5 +225,23 @@
         text-decoration-style:double;
         text-decoration-color: #b388ff;
         color: black;
+    }
+     @media only screen and (max-width: 900px) {
+         .pop-up {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            top: 0;
+            left: 0;
+            z-index: 10;
+            overflow: auto;
+
+        }
+        .pop-up-content {
+            padding: 2rem;
+            width: 80vw;
+            margin: 50% auto;
+        }
     }
 </style>
