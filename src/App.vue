@@ -17,4 +17,9 @@
   margin-top: 1rem;
   text-align: center;
 }
+@media only screen and (max-width: 900px) {
+  .main {
+    margin-bottom: 10rem;
+  } 
+}
 </style>
